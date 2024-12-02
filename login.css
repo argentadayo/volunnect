@@ -26,6 +26,8 @@ body {
 }
 .beranda {
     position: relative;
+    text-decoration: none;
+    color: white;
 }
 .beranda-parent {
     display: flex;
@@ -38,7 +40,15 @@ body {
 .daftar {
     position: relative;
     font-weight: 500;
-}
+    color: white;
+    text-decoration: none;
+  }
+  .login {
+    position: relative;
+    font-weight: 500;
+    color: #ff466e;
+    text-decoration: none;
+  }
 .daftar-wrapper {
     border-radius: 5px;
     border: 1px solid #fff;
@@ -120,6 +130,68 @@ body {
     align-items: center;
     justify-content: flex-start;
     padding: 8px;
+}
+.email-input {
+    flex-grow: 1; 
+    width: 280px;
+    text-align: left; 
+    padding: 8px; 
+    margin-right: 8px;
+    border: none transparent;
+    border-radius: 4px;
+    outline: none;
+    background-color: #d9d9d9;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Warna hitam dengan transparansi */
+    z-index: 1000; /* Pastikan overlay berada di atas elemen lain */
+    display: flex; /* Menggunakan flexbox untuk memusatkan konten */
+    justify-content: center; /* Memusatkan secara horizontal */
+    align-items: center; /* Memusatkan secara vertikal */
+}
+.overlay-content {
+    background-color: #ff466e; /* Latar belakang kotak */
+    padding: 20px; /* Ruang di dalam kotak */
+    border-radius: 8px; /* Sudut kotak yang membulat */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan untuk efek kedalaman */
+    text-align: center; /* Mengatur teks agar berada di tengah */
+    width: 300px;
+    max-width: 90%;
+}
+.overlay-content p {
+    font-size: 18px;
+    color: #fff;
+}
+
+.overlay-content h2 {
+    font-size: 20px;
+    color: #fff;
+}
+
+#closeOverlay {
+    margin-top: 20px; /* Jarak antara teks dan tombol */
+    padding: 10px 20px; /* Ruang dalam tombol */
+    background-color: #d9d9d9; /* Warna latar belakang tombol */
+    color: #1e1e1e; /* Warna teks tombol */
+    border: none; /* Menghilangkan border tombol */
+    border-radius: 5px; /* Sudut tombol yang membulat */
+    cursor: pointer; /* Menunjukkan kursor pointer saat hover */
+}
+.password-input {
+    flex-grow: 1; 
+    width: 280px;
+    text-align: left; 
+    padding: 8px; 
+    margin-right: 8px;
+    border: none transparent;
+    border-radius: 4px;
+    outline: none;
+    background-color: #d9d9d9;
 }
 .frame-div {
     align-self: stretch;
@@ -227,4 +299,39 @@ body {
     color: #fff;
     font-family: Manrope;
 }
+/* Hapus tampilan default */
+input[type="checkbox"] {
+    appearance: none; /* Hapus tampilan default checkbox */
+    -webkit-appearance: none; /* Untuk browser berbasis WebKit */
+    width: 15px;
+    height: 15px;
+    margin: 3px 5px;
+    border: 2px solid #ccc; /* Warna border */
+    border-radius: 4px; /* Membuat bentuk kotak dengan sudut melengkung */
+    outline: none;
+    cursor: pointer;
+    background-color: #ffffff; /* Warna default */
+    transition: background-color 0.3s, border-color 0.3s;
+}
 
+/* Warna dan ikon saat checkbox dipilih */
+input[type="checkbox"]:checked {
+    background-color: #ff466e; /* Warna saat dipilih */
+    border-color: #ff466e; /* Warna border saat dipilih */
+    position: relative;
+}
+
+input[type="checkbox"]:checked::after {
+    content: '\2713'; /* Simbol centang */
+    color: white;
+    font-size: 14px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Tambahkan efek hover (opsional) */
+input[type="checkbox"]:hover {
+    border-color: #ff466e; /* Warna border saat hover */
+}

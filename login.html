@@ -21,16 +21,16 @@
           					<div class="volunnect">Volunnect</div>
         				</div>
         				<div class="beranda-parent">
-          					<b class="beranda">Beranda</b>
-          					<b class="beranda">Temukan Event</b>
-          					<b class="beranda">Tentang Kami</b>
+							<a href="./homepage.html" class="beranda"><b>Beranda</b></a>
+							<a href="./eventlist.html" class="beranda"><b>Temukan Event</b></a>
+							<a href="./aboutus.html" class="beranda"><b>Tentang Kami</b></a>
         				</div>
         				<div class="frame-container">
           					<div class="daftar-wrapper">
-            						<div class="daftar">Daftar</div>
+								<a href="./signin.html" class="daftar">Daftar</a>
           					</div>
           					<div class="login-wrapper">
-            						<div class="daftar">Login</div>
+								<a href="./login.html" class="login">Login</a>
           					</div>
         				</div>
       			</div>
@@ -47,10 +47,22 @@
         				</div>
         				<div class="frame-div">
           					<div class="email-wrapper">
-            						<div class="daftar">Email</div>
+            						<div class="daftar">
+										<input
+                    type="text"
+                    class="email-input"
+                    placeholder="Email"
+                  />
+									</div>
           					</div>
           					<div class="email-wrapper">
-            						<div class="daftar">Password</div>
+            						<div class="daftar">
+										<input
+                    type="password"
+                    class="password-input"
+                    placeholder="Password"
+                  />
+									</div>
           					</div>
         				</div>
         				<div class="forgot-your-password-wrapper">
@@ -58,24 +70,78 @@
         				</div>
         				<div class="frame-wrapper">
           					<div class="rectangle-parent">
-            						<div class="frame-item">
-            						</div>
+									<input type="checkbox" id="privacy-policy" class="privacy-checkbox" />
             						<div class="forgot-your-password">Remember your device?</div>
           					</div>
         				</div>
-        				<div class="log-in-wrapper">
+        				<div class="log-in-wrapper" id="log-in-wrapper">
           					<div class="daftar">Log In</div>
         				</div>
         				<div class="dont-have-an-account-sign-up-wrapper">
-          					<div class="beranda">
+          					<div class="beranda1">
             						<span>Don’t have an account? </span>
-            						<span class="sign-up">Sign Up</span>
+            						<a href="./signin.html" class="sign-up-link">
+										<span class="sign-up">Sign Up</span>
+									  </a>
+									  
           					</div>
+
+							  <div id="overlay" class="overlay" style="display: none;">
+								<div class="overlay-content">
+									<h2>Login Sukses!</h2>
+									<p>Login telah berhasil, silahkan kembali ke Home Page</p>
+									<button id="closeOverlay">Tutup</button>
+								</div>
+							</div>
+
         				</div>
       			</div>
     		</div>
   	</div>
-  	
+  	<script>
+		document
+		  .getElementById("log-in-wrapper")
+		  .addEventListener("click", function () {
+			// Ambil nilai dari input dan textarea
+			var emailInput = document
+			  .querySelector(".email-input")
+			  .value.trim();
+			var passwordInput = document
+			  .querySelector(".password-input")
+			  .value.trim();
+  
+			  const email = document.querySelector('.email-input').value;
+			  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+				if (!emailPattern.test(email)) {
+				  alert('Masukkan email yang valid (contoh: example@gmail.com)');
+				  return;
+				}
+
+			// Periksa apakah input tidak kosong
+			if (emailInput !== "" && passwordInput !== "") {
+			  document.getElementById("overlay").style.display = "flex"; // Tampilkan overlay
+			} else {
+			  alert("Mohon isi semua kolom inputan."); // Tampilkan peringatan jika ada kolom yang kosong
+			}
+		  });
+  
+		// Menutup overlay ketika tombol "Tutup" diklik
+		document
+		  .getElementById("closeOverlay")
+		  .addEventListener("click", function () {
+			document.getElementById("overlay").style.display = "none";
+		  });
+  
+		// Jika Anda ingin menutup overlay ketika pengguna mengklik di mana saja di overlay
+		document
+		  .getElementById("overlay")
+		  .addEventListener("click", function (event) {
+			if (event.target === this) {
+			  // Hanya menutup jika area luar overlay diklik
+			  this.style.display = "none";
+			}
+		  });
+	  </script>
   	
   	
   	
